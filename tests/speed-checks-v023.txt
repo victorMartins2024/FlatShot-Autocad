@@ -1,0 +1,7 @@
+BASELINE run=0 ms=547 visible=13240 hidden=6640
+OPTIMIZED run=1 ms=487 visible=13240 hidden=6640
+BASELINE run=2 ms=583 visible=13240 hidden=6640
+OPTIMIZED run=3 ms=457 visible=13240 hidden=6640
+BASELINE run=4 ms=599 visible=13240 hidden=6640
+OPTIMIZED run=5 ms=448 visible=13240 hidden=6640
+PASS identical visible/hidden segment counts; 120 repeated blocks / 240 solids; oblique view; 1:1 scale.

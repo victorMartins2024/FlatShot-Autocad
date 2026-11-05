@@ -1,0 +1,5 @@
+PASS analytic partial overlap and coplanar depth
+PASS two overlapping solids: XY projection, source layers, RGB/ACI, HIDDEN/ACI8, partial cross-solid occlusion
+PASS hidden off, preservation off, prior CF result excluded, verified rollback, cancellation
+PASS sphere, cylinder, planar surface, SubD mesh, rotated/scaled local block, ByBlock RGB, oblique view, UCS insertion, unchanged source
+ALL CHECKS PASSED

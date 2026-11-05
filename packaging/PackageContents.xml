@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage SchemaVersion="1.0" AutodeskProduct="AutoCAD" Name="Colourful Flatshot" AppVersion="0.2.3" Description="Paleta Colourful Flatshot para AutoCAD 2023" Author="Colourful Flatshot" ProductCode="{75210BD8-A6D8-4890-AFD3-56B99E00359C}" UpgradeCode="{88822BA5-56DF-4D63-AB54-283D684809E1}">
+  <Components>
+    <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R24.2" SeriesMax="R24.2" />
+    <ComponentEntry AppName="ColourfulFlatshot" AppDescription="Paleta Colourful Flatshot" AppType=".Net" Version="0.2.3" ModuleName="./Contents/Windows/ColourfulFlatshot.v023.dll" LoadOnAutoCADStartup="True" LoadOnCommandInvocation="True">
+      <Commands GroupName="COLOURFULFLATSHOT_COMMANDS">
+        <Command Global="COLOURFULFLATSHOT" Local="COLOURFULFLATSHOT" />
+        <Command Global="CF" Local="CF" />
+        <Command Global="CFS_GENERATE" Local="CFS_GENERATE" />
+      </Commands>
+    </ComponentEntry>
+  </Components>
+</ApplicationPackage>

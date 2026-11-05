@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+    <ProjectGuid>{1E981DB7-73A6-42CA-BFD9-B022CE1A9F20}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ColourfulFlatshot</RootNamespace>
+    <AssemblyName>ColourfulFlatshot</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AutoCADDir Condition="'$(AutoCADDir)' == ''">$(ProgramW6432)\Autodesk\AutoCAD 2023</AutoCADDir>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize Condition="'$(Configuration)' == 'Release'">true</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="AcCoreMgd"><HintPath>$(AutoCADDir)\AcCoreMgd.dll</HintPath><Private>False</Private></Reference>
+    <Reference Include="AcDbMgd"><HintPath>$(AutoCADDir)\AcDbMgd.dll</HintPath><Private>False</Private></Reference>
+    <Reference Include="AcMgd"><HintPath>$(AutoCADDir)\AcMgd.dll</HintPath><Private>False</Private></Reference>
+    <Reference Include="AcDbMgdBrep"><HintPath>$(AutoCADDir)\AcDbMgdBrep.dll</HintPath><Private>False</Private></Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Plugin.cs" />
+    <Compile Include="FlatshotPalette.cs" />
+    <Compile Include="FlatshotEngine.cs" />
+    <Compile Include="ProjectionMath.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Target Name="CheckAutoCADReferences" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(AutoCADDir)\AcMgd.dll') Or !Exists('$(AutoCADDir)\AcDbMgd.dll') Or !Exists('$(AutoCADDir)\AcCoreMgd.dll') Or !Exists('$(AutoCADDir)\AcDbMgdBrep.dll')" Text="Bibliotecas do AutoCAD 2023 não encontradas. Informe /p:AutoCADDir=&quot;C:\Program Files\Autodesk\AutoCAD 2023&quot; ou o diretório de referências do ObjectARX 2023." />
+  </Target>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
